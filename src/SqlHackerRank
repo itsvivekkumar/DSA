@@ -1,0 +1,72 @@
+1. Query all columns for all American cities in the CITY table with populations larger than 100000. The CountryCode for America is USA.
+     select * from CITY where population > 100000 and CountryCode='USA';
+
+//column names are case sensitive
+2. Query the NAME field for all American cities in the CITY table with populations larger than 120000. The CountryCode for America is USA
+
+      select name from city where population > 120000 and countrycode ='USA';
+
+3. Query all columns for a city in CITY with the ID 1661.
+      SELECT * from city where id = 1661;
+
+4.Query the names of all the Japanese cities in the CITY table. The COUNTRYCODE for Japan is JPN.
+     select name from city where countrycode = 'JPN';
+
+//round used to decide decimal point, sum() return sum from the name passed in it.
+5.Query the following two values from the STATION table:
+The sum of all values in LAT_N rounded to a scale of  decimal places.
+The sum of all values in LONG_W rounded to a scale of  decimal places.
+
+      SELECT round(sum(lat_n),2),round(sum(long_w),2) FROM station;
+
+//distinct(means unique) is used to remove duplicate value from that column, mod() means id%2.
+6.Query a list of CITY names from STATION for cities that have an even ID number. Print the results in any order, but exclude duplicates from the answer.
+
+       SELECT distinct city FROM station WHERE mod(id,2)=0;
+
+//count() used to total no of value present in that column.
+7. Find the difference between the total number of CITY entries in the table and the number of distinct CITY entries in the table.
+
+     SELECT count(city)-count(distinct city) FROM station;
+
+//length() gives us column me present value ka length, order by means which order values need to present ascending/descending.
+//limit gives fixed no of result from that column
+8.Query the two cities in STATION with the shortest and longest CITY names, as well as their respective lengths (i.e.: number of characters in the name). If there is more than one smallest or largest city, choose the one that comes first when ordered alphabetically.
+
+     SELECT city,length(city) FROM station ORDER BY length(city), city limit 1;   //ascending order me sort ke liye
+     SELECT city,length(city) FROM station ORDER BY length(city) DESC, city limit 1;
+
+//like means it matches with requirement,(%A= staring matches with A,a snd  %A = ending matches with A,a)
+9.Query the list of CITY names starting with vowels (i.e., a, e, i, o, or u) from STATION. Your result cannot contain duplicates.
+
+SELECT distinct city FROM station where (city like 'A%' or
+city like 'E%' or
+city like 'I%' or
+city like 'O%' or
+city like 'U%' );
+
+
+9.1 CITY names ending with vowels (i.e., a, e, i, o, or u) , then just change (city like '%A')
+9.2 CITY names having both starting and ending with vowels (i.e., a, e, i, o, or u) , then just change (city like '%A') and (city like '%A')
+9.3 CITY names not starting and ending with vowels (i.e., a, e, i, o, or u) , then just change not (city like '%A') and (city like '%A')
+9.4 CITY names with either starting or ending with vowels (i.e., a, e, i, o, or u) , then just change (city like '%A') or (city like '%A')
+
+
+10.Query the sum of Northern Latitudes (LAT_N) from STATION having values greater than  38.788 and less than 137.234 . Truncate your answer to 4 decimal places.4
+
+     SELECT round(sum(lat_n),4) from station where lat_n > 38.7880 and lat_n < 137.2345;
+
+11. Query the Western Longitude (LONG_W) for the largest Northern Latitude (LAT_N) in STATION that is less than 137.234 . Round your answer to  4 decimal places.
+
+     SELECT round(long_w,4) FROM station WHERE
+        lat_n = (SELECT max(lat_n) from station where lat_n < 137.2345);
+
+12. Consider two points on a 2D plane (a,b) and (c,d)
+ Query the Manhattan Distance(MD) between points, MD= abs(c-a)+abs(d-b)
+
+    SELECT round(abs(b-a)) + abs(d-c) , 4) FROM station;
+
+13. Euclid distance forumula , sqrt[pow(b-a , 2) +  pow(d-c , 2) ]
+
+     SELECT round(sqrt(pow((a,b), 2) + pow((c,d), 2)) , 4) FROM station;
+
