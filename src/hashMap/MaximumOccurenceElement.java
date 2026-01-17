@@ -96,10 +96,7 @@ public class MaximumOccurenceElement {
             int occDiff=Integer.compare(mp.get(b),mp.get(a));
             return (occDiff != 0 )? occDiff : Character.compare(a,b);
         });  //we must need to return as we are using {} after ->, where expression is written.
-
-
         System.out.println("sorted list ="+ls);
-
     }
 
 }
