@@ -104,3 +104,10 @@ Write a query to find the maximum total earnings for all employees as well as th
 
   select max(salary*months), count(*) from employee
 where salary*months=(select max(salary*months) from employee);
+
+18. 1,2,3 highest salary
+  Select distinct salary from employee order by salary desc, limit 1;
+  Select distinct salary from employee order by salary desc, limit 1 offset 1;  //skip first row
+  Select distinct salary from employee order by salary desc, limit 1 offset 2;   //skip first 2 row
+
+  19.
