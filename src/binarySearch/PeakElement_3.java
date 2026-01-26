@@ -3,12 +3,15 @@ package binarySearch;
 import java.util.Arrays;
 
 public class PeakElement_3 {
-    public static void main(String[] args){
-        int []arr={2,4,9,5,6,8,7};
-        int peakEleIdx=peakElementInUnsortedArray(arr);
-        System.out.println("peak ele is ="+arr[peakEleIdx]+" present at index ="+peakEleIdx);  //idx=5
-        int peakEleIdx1= peakElementInArray(Arrays.copyOf(arr,peakEleIdx));
-        System.out.println("2 approach peak ele is ="+arr[peakEleIdx1]+" present at index ="+peakEleIdx1);
+    public static void main(String[] args) {
+//        int[] arr = {2, 4, 9, 5, 6, 8, 7};
+//        int peakEleIdx = peakElementInUnsortedArray(arr);
+//        System.out.println("peak ele is =" + arr[peakEleIdx] + " present at index =" + peakEleIdx);  //idx=5
+//        int peakEleIdx1 = peakElementInArray(Arrays.copyOf(arr, peakEleIdx));
+//        System.out.println("2 approach peak ele is =" + arr[peakEleIdx1] + " present at index =" + peakEleIdx1);
+        int[] arr1 = {2, 4, 5, 9, 8, 7};    //o/p = idx - 3
+        int keyEle = 9;
+        searchElementInBitonicArray(arr1, keyEle);
     }
 
     //remember binary search always return one peak ele as it ignores one part of array.
@@ -65,5 +68,20 @@ public class PeakElement_3 {
             }
         }
         return res;
+    }
+
+    //Bitonic array - array which increases first and then decreases.
+    public static void searchElementInBitonicArray(int[] arr, int keyEle) {
+        int peakEle = peakElementInArray(arr);
+        System.out.println("Peak element of given array ="+peakEle);
+        int[] leftArr = Arrays.copyOfRange(arr, 0, peakEle);
+        System.out.println(Arrays.toString(leftArr));
+        int[] rightArr = Arrays.copyOfRange(arr, peakEle, arr.length);
+        System.out.println(Arrays.toString(rightArr));
+        if (keyEle < arr[peakEle]) {
+            BSTechnique.binarySearch(leftArr, keyEle);
+        } else {
+            BSTechnique.binarySearch(rightArr, keyEle);
+        }
     }
 }
