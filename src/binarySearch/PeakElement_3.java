@@ -11,7 +11,7 @@ public class PeakElement_3 {
 //        System.out.println("2 approach peak ele is =" + arr[peakEleIdx1] + " present at index =" + peakEleIdx1);
         int[] arr1 = {2, 4, 5, 9, 8, 7};    //o/p = idx - 3
         int keyEle = 9;
-        searchElementInBitonicArray(arr1, keyEle);
+        searchElementInBiotonicArray(arr1, keyEle);
     }
 
     //remember binary search always return one peak ele as it ignores one part of array.
@@ -70,8 +70,8 @@ public class PeakElement_3 {
         return res;
     }
 
-    //Bitonic array - array which increases first and then decreases.
-    public static void searchElementInBitonicArray(int[] arr, int keyEle) {
+    //Biotonic array - array which increases first and then decreases.
+    public static void searchElementInBiotonicArray(int[] arr, int keyEle) {
         int peakEle = peakElementInArray(arr);
         System.out.println("Peak element of given array ="+peakEle);
         int[] leftArr = Arrays.copyOfRange(arr, 0, peakEle);
