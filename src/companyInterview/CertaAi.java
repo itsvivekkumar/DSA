@@ -65,6 +65,7 @@ public class CertaAi {
         for(int c: arr){
             map.put(c,map.getOrDefault(c,0)+1);
         }
+        //highest occ of no of times duplicates ele repeated. if not want remove ( i> maxi)
         for(int i : map.values()){
             if(i > 1 && i > maxi){
                 maxi=i;

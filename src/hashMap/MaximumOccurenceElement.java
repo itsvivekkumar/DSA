@@ -92,6 +92,7 @@ public class MaximumOccurenceElement {
         }
 
         ArrayList<Character> ls=new ArrayList<>(mp.keySet());
+        System.out.println("new arr = "+ls);
         ls.sort((a,b) -> {
             int occDiff=Integer.compare(mp.get(b),mp.get(a));
             return (occDiff != 0 )? occDiff : Character.compare(a,b);
