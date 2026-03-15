@@ -2,7 +2,7 @@ package hashMap;
 
 import java.util.HashMap;
 
-public class OccurenceQst {
+public class OccurenceQst_1 {
     public static void main(String[] args) {
         int []arr1={1,2,3,4,1,3,6};
         String arr2="vivek";

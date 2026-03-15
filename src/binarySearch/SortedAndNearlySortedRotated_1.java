@@ -10,7 +10,7 @@ public class SortedAndNearlySortedRotated_1 {
         elementInSortedRotated(arr,target);
     }
 
-    //sorted rotated me min ele how many times rotated[ normal linear , optimal binary search]
+    //sorted rotated me min ele indicated, how many times arr rotated[ normal linear , optimal binary search]
     public static int nTimesRotated(int []arr){
         int n=arr.length;
         int s=0, e=n-1,eleIdx=0;

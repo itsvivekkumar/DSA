@@ -1,12 +1,10 @@
 package hashMap;
 
-import org.w3c.dom.ls.LSOutput;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MaximumOccurenceElement {
+public class MaximumOccurenceElement_2 {
     public static void main(String[] args) {
         maximumOccElement();
         secondHighestOccElement();

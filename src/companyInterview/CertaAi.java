@@ -69,7 +69,8 @@ public class CertaAi {
         for(int i : map.values()){
             if(i > 1 && i > maxi){
                 maxi=i;
-                dupRepeated=dupRepeated+(i-1);   // i-1 bcuz first time wo element unique hoga
+                dupRepeated=i-1;   // i-1 bcuz first time wo element unique hoga
+//              dupRepeated=dupRepeated+(i-1);
             }
         }
         System.out.println("total number of times number having duplicated repeated in array ="+dupRepeated);

@@ -73,7 +73,7 @@ public class PeakElement_3 {
     //Biotonic array - array which increases first and then decreases.
     public static void searchElementInBiotonicArray(int[] arr, int keyEle) {
         int peakEle = peakElementInArray(arr);
-        System.out.println("Peak element of given array ="+peakEle);
+        System.out.println("Peak element idx of given array ="+peakEle);
         int[] leftArr = Arrays.copyOfRange(arr, 0, peakEle);
         System.out.println(Arrays.toString(leftArr));
         int[] rightArr = Arrays.copyOfRange(arr, peakEle, arr.length);
